@@ -1,0 +1,29 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form select, .form input {
+    font-size: 1.2rem;
+    padding: 5px 2px;
+    width: 40%;
+}
+
+.form .row input {
+    width: 38.5%
+}
+
+.submit_button {
+    padding: 5px 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: rgb(144, 202, 235);
+}

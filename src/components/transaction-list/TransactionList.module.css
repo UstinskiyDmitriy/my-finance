@@ -1,0 +1,32 @@
+.main {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    margin-block-start: 6vh;
+    width: 90vw;
+}
+
+.transaction_card {
+    padding: 5px 10px;
+    margin: 0;
+    border-radius: 10px;
+}
+
+.transaction_category {
+    margin: 0;
+}
+
+.income {
+    background-color: rgb(102, 186, 102);
+    
+}
+
+.expense {
+    background-color: rgb(177, 67, 67);
+}
+
+button {
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+}
