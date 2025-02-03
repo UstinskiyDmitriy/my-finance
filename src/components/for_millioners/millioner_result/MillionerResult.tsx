@@ -1,5 +1,5 @@
 import styles from './MillionerResult.module.css'
-import memImage from '../../../../assets/mem.jpg'
+import memImage from '../../../../public/mem.jpg'
 interface ResultProps {
   name: string;
   amount: number;
