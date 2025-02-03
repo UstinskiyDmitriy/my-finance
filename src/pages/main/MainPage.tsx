@@ -1,4 +1,5 @@
 import Comprasion from "../../components/comprasion/Comprasion";
+import MillionButton from "../../components/for_millioners/million_button/MillionButton";
 import { TransactionForm } from "../../components/transaction-form/TransactionForm";
 import styles from "./MainPage.module.css";
 
@@ -11,7 +12,7 @@ export default function MainPage() {
       </div>
       
         <Comprasion />
-      
+      <MillionButton />
     </div>
   );
 }
