@@ -11,7 +11,7 @@ export const TransactionList = () => {
       <h2>История операций</h2>
       
       {transactions.length === 0 ? (
-        <p>Нет операций</p>
+        <h2 className={styles.no_have}>Нет операций</h2>
       ) : (
         <div className={styles.main}>
           {transactions?.map((transaction:Transaction) => (
@@ -19,30 +19,24 @@ export const TransactionList = () => {
               key={transaction.id}
               className={`${styles.transaction_card} ${transaction.type === 'income' ? styles.income : styles.expense}`}
             >
-              <div>
-                <div>
+                <div className={styles.card_content}>
                   <h3 className={styles.transaction_category}>{transaction.category}</h3>
-                  <p>
-                    {transaction.description}
-                  </p>
                   <time>
                     {formatDate(transaction.date)}
                   </time>
-                </div>
-                
-                <div>
-                  <div>
-                    {transaction.type === 'income' ? '+' : '-'}
-                    {transaction.amount.toLocaleString()} ₽
+                  <div className={styles.amount}>
+                    <span>{transaction.type === 'income' ? '+' : '-'}</span>
+                    <p>{transaction.amount.toLocaleString()} ₽</p>
                   </div>
+                </div>
                   <button
                     onClick={() => deleteTransaction(transaction.id)} 
                     className={styles.button}
                     >
                     Удалить
                   </button>
-                </div>
-              </div>
+                
+              
             </div>
           ))}
         </div>

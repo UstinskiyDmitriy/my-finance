@@ -1,17 +1,48 @@
 .charts_container {
-    display: flex;
+  display: flex;
+  flex-direction: row;
+  gap: 5vw;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.chart {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 45%;
+  max-width: 400px;
+  background: #222;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+h3 {
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.noData {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  font-size: 1.4rem;
+}
+
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+  .charts_container {
     flex-direction: column;
-    gap: 5vh;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-block-start: 2vh;
+    gap: 20px;
   }
-  
+
   .chart {
-    display: flex;
-    flex-direction: column;
-    gap: 2vh;
     width: 90%;
   }
-  
+}

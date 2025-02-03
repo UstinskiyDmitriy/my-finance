@@ -9,9 +9,9 @@ export default function MainPage() {
       <div className={styles.form}>
         <TransactionForm />
       </div>
-      <div className={styles.comprasion}>
+      
         <Comprasion />
-      </div>
+      
     </div>
   );
 }

@@ -58,7 +58,7 @@
     reducers: {
       addTransaction: {
         reducer: (state, action: PayloadAction<Transaction>) => {
-          if(Number.isNaN(action.payload.amount) || action.payload.amount === 0) {
+          if(Number.isNaN(action.payload.amount) || action.payload.amount <= 0) {
             return alert('Введите сумму')
           }
           state.items.push(action.payload);

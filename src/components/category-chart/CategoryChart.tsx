@@ -23,14 +23,22 @@ export default function CategoryChart() {
 
   return (
     <div className={styles.charts_container}>
-      <div className={styles.chart}>
-        <h3>Доходы по категориям</h3>
-        <Pie data={createChartData(incomeByCategory, 'Доходы')} />
-      </div>
-      <div className={styles.chart}>
-        <h3>Расходы по категориям</h3>
-        <Pie data={createChartData(expenseByCategory, 'Расходы')} />
-      </div>
+      {Object.keys(incomeByCategory).length > 0 && (
+        <div className={styles.chart}>
+          <h3>Доходы по категориям</h3>
+          <Pie data={createChartData(incomeByCategory, 'Доходы')} />
+        </div>
+      )}
+      {Object.keys(expenseByCategory).length > 0 && (
+        <div className={styles.chart}>
+          <h3>Расходы по категориям</h3>
+          <Pie data={createChartData(expenseByCategory, 'Расходы')} />
+        </div>
+      )}
+      {Object.keys(incomeByCategory).length === 0 && Object.keys(expenseByCategory).length === 0 && (
+        <p className={styles.noData}>Нет данных для отображения</p>
+      )}
     </div>
   );
 }
+
