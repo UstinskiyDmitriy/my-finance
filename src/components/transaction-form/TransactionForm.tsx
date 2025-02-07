@@ -1,16 +1,20 @@
-// features/transactions/components/TransactionForm.tsx
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { useEffect } from 'react';
 import { TransactionFormValues } from '../../features/transactions/types';
 import { useTransactions } from '../../features/transactions/hooks';
-import styles from './TransactionForm.module.css'
+import styles from './TransactionForm.module.css';
 import { expenseCategories, incomeCategories } from '../../features/transactions/const/categories';
 
 export const TransactionForm = () => {
-  const { register, handleSubmit, reset, watch } = useForm<TransactionFormValues>();
+  const { register, handleSubmit, reset, watch, setValue } = useForm<TransactionFormValues>();
   const { addTransaction } = useTransactions();
 
-  const type = watch('type', 'expense')
-  const categories = type === 'expense' ? expenseCategories : incomeCategories
+  const type = watch('type', 'expense');
+  const categories = type === 'expense' ? expenseCategories : incomeCategories;
+
+  useEffect(() => {
+    setValue('category', categories[0]); 
+  }, [type, categories, setValue]);
 
   const onSubmit: SubmitHandler<TransactionFormValues> = (data) => {
     addTransaction(data);
