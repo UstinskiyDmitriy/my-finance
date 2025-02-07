@@ -15,7 +15,7 @@
   gap: 15px;
   width: 45%;
   max-width: 400px;
-  background: #222;
+  background: var(--accent-bg-color);
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -43,6 +43,6 @@ h3 {
   }
 
   .chart {
-    width: 90%;
+    width: 80%;
   }
 }
