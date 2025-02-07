@@ -14,7 +14,7 @@
   
   label {
     font-size: 1rem;
-    color: #fff;
+    color: var(--primary-text-color);
   }
   
   select,
@@ -23,13 +23,13 @@
     border-radius: 8px;
     border: none;
     background-color: #444;
-    color: #fff;
+    color:  var(--primary-text-color);
     font-size: 1rem;
   }
   
   .submit_button {
-    background: #3498db;
-    color: white;
+    background: var(--submit-color);
+    color:  var(--primary-text-color);
     border: none;
     padding: 12px;
     font-size: 1rem;
