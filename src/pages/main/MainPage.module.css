@@ -10,7 +10,7 @@
 
 h1 {
   font-size: 2rem;
-  color: #ffffff;
+  color: var(--primary-text-color);
   text-align: center;
 }
 
