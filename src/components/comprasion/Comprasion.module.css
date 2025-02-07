@@ -8,7 +8,7 @@
 .column {
   flex: 1;
   text-align: center;
-  background: #222;
+  background: var(--accent-bg-color);
   padding: 15px;
   border-radius: 12px;
   transition: 0.2s;
@@ -21,7 +21,7 @@
 
 .title {
   font-size: 1.2rem;
-  color: #ddd;
+  color: var(--primary-text-color);
   margin-bottom: 8px;
 }
 
@@ -33,11 +33,11 @@
 }
 
 .income {
-  background: #2ecc71;
+  background: var(--income-bg-color);
   color: white;
 }
 
 .expense {
-  background: #e74c3c;
-  color: white;
+  background: var(--expense-bg-color);
+  color: var(--primary-text-color);
 }
