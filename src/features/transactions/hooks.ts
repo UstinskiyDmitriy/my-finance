@@ -1,6 +1,7 @@
 import { useAppDispatch, useAppSelector } from '../../app/store';
 import { Transaction, TransactionFormValues } from './types';
-import { addTransaction, deleteTransaction, editTransaction, selectExpenseByCategory, selectExpenseTotal, selectIncomeByCategory, selectIncomeTotal } from './slice';
+import { addTransaction, deleteTransaction, editTransaction} from './slice';
+import { selectExpenseByCategory, selectExpenseTotal, selectIncomeByCategory, selectIncomeTotal } from './selectors';
 
 export const useTransactions = () => {
   const dispatch = useAppDispatch();
