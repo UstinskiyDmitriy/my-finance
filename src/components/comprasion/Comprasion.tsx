@@ -6,8 +6,7 @@ export default function Comprasion() {
 
     const {incomeTotal, expenseTotal} = useTransactions();
     const [modalType, setModalType] = useState<'income' | 'expense' | null>(null);
-    const {transactions} = useTransactions()
-    const openModal = (type: 'income' | 'expense') =>() => {
+      const openModal = (type: 'income' | 'expense') =>() => {
         setModalType(type)
     }
 
@@ -29,7 +28,7 @@ export default function Comprasion() {
       {modalType && (
         <TransactionModal 
                   type={modalType}
-                  transactions={transactions.filter((t) => t.type === modalType)} onClose={closeModal}        />
+                  onClose={closeModal}        />
       )}
     </div>
   );
