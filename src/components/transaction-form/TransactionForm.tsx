@@ -1,19 +1,23 @@
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { useEffect } from 'react';
-import { TransactionFormValues } from '../../features/transactions/types';
-import { useTransactions } from '../../features/transactions/hooks';
-import styles from './TransactionForm.module.css';
-import { expenseCategories, incomeCategories } from '../../features/transactions/const/categories';
+import { useForm, SubmitHandler } from "react-hook-form";
+import { useEffect } from "react";
+import { TransactionFormValues } from "../../features/transactions/types";
+import { useTransactions } from "../../features/transactions/hooks";
+import styles from "./TransactionForm.module.css";
+import {
+  expenseCategories,
+  incomeCategories,
+} from "../../features/transactions/const/categories";
 
 export const TransactionForm = () => {
-  const { register, handleSubmit, reset, watch, setValue } = useForm<TransactionFormValues>();
+  const { register, handleSubmit, reset, watch, setValue } =
+    useForm<TransactionFormValues>();
   const { addTransaction } = useTransactions();
 
-  const type = watch('type', 'expense');
-  const categories = type === 'expense' ? expenseCategories : incomeCategories;
+  const type = watch("type", "expense");
+  const categories = type === "expense" ? expenseCategories : incomeCategories;
 
   useEffect(() => {
-    setValue('category', categories[0]); 
+    setValue("category", categories[0]);
   }, [type, categories, setValue]);
 
   const onSubmit: SubmitHandler<TransactionFormValues> = (data) => {
@@ -25,16 +29,18 @@ export const TransactionForm = () => {
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
       <div className={styles.row}>
         <label>Тип операции</label>
-        <select {...register('type')}>
+        <select {...register("type")}>
           <option value="expense">Расход</option>
           <option value="income">Доход</option>
         </select>
       </div>
       <div className={styles.row}>
         <label>Категория</label>
-        <select {...register('category')}>
+        <select {...register("category")}>
           {categories.map((cat) => (
-            <option value={cat} key={cat}>{cat}</option>
+            <option value={cat} key={cat}>
+              {cat}
+            </option>
           ))}
         </select>
       </div>
@@ -43,8 +49,8 @@ export const TransactionForm = () => {
         <label>Сумма</label>
         <input
           type="number"
-          {...register('amount', { valueAsNumber: true })}
-          placeholder='Введите сумму'
+          {...register("amount", { valueAsNumber: true })}
+          placeholder="Введите сумму"
         />
       </div>
 
