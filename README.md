@@ -1,50 +1,54 @@
-# React + TypeScript + Vite
+# My Finance 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Приложение создавалось для личного пользования и решенни проблемы больших расходов в пустоту. При использовании банковской карты, в приложении можно увидеть расходы и доходы, но при использовании наличных есть необходимость вести такой "дневник" финансов.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+### Приложение позволяет: 
+- Добавлять статьи расходов и доходов
+- Выбрать категорию 
+- Отслеживать историю всех операций
+- Отслеживать суммы расходов и доходов по конкретным категориям 
+- Визуализация в виде кругового графика
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Используемые технологии
 
-- Configure the top-level `parserOptions` property like this:
+- React
+- React Router
+- React Hook Form
+- Redux Toolkit
+- Local Storage
+- Кастомный хук useTransaction()
+- Chart.js
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Презентация проекта
+[Рабочая версия](https://my-finance-delta-three.vercel.app/)
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+[Ссылка на GitHub](https://github.com/UstinskiyDmitriy/my-finance)
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+| Mobile | Desktop |
+| :-: | :-: |
+|![mobile1](./public/screen1_mobile.png)| ![desktop1](./public/desktop1.png) |
+|![mobile2](./public/screen2_mobile.png)| ![desktop2](./public/desktop2.png) |
+|![mobile3](./public/screen3_mobile.png)| ![desktop3](./public/desktop3.png) |
+|![mobile4](./public/screen4_mobile.png)| ![desktop4](./public/desktop4.png) |
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Что было сделано 
+
+- Создание всех React компонентов 
+- Настройка состояния приложения в Redux Toolkit
+- Настройка роутинга
+- Создание кастомного хука для взаимодействия с состояниями 
+
+### Что планируется добавить/изменить
+
+- Возможность добавление собственных категорий 
+- Добавить страницу с целями(накоплениями)
+- Добавить уведомления в телеграм и возможность выключать их 
+- создать бота телеграм для полуения уведомлений 
+
+### Инструкция по запуску 
+
+1. Склонировать репозиторий: https://github.com/UstinskiyDmitriy/my-finance.git
+2. Установить зависимости: __npm install__
+3. Запустить проект: __npm run dev__
