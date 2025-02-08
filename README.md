@@ -52,3 +52,4 @@
 1. Склонировать репозиторий: https://github.com/UstinskiyDmitriy/my-finance.git
 2. Установить зависимости: __npm install__
 3. Запустить проект: __npm run dev__
+
