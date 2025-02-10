@@ -4,6 +4,7 @@ import MainPage from './pages/main/MainPage';
 import NavBar from './components/nav-bar/NavBar';
 import ChartPage from './pages/chart/ChartPage';
 import HistoryPage from './pages/history/HistoryPage';
+import Savings from './pages/savings/Savings';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/charts" element={<ChartPage/>} />
           <Route path="/history" element={<HistoryPage/>} />
+          <Route path="/savings" element={<Savings />} />
         </Routes>
       </div>
     </Router>
