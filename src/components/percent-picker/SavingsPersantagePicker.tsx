@@ -37,7 +37,7 @@ const SavingsPercentagePicker = () => {
 
       <Slider
         value={value}
-        onChange={(e, newValue) => handleChange(newValue as number)}
+        onChange={(_e, newValue) => handleChange(newValue as number)}
         min={0}
         max={100}
         step={1}
