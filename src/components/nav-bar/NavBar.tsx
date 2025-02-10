@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { ChartPie, Clock, Home } from "lucide-react";
+import { ChartPie, Clock, HandCoins, Home } from "lucide-react";
 import styles from './NavBar.module.css';
 
 export default function NavBar() {
@@ -14,6 +14,9 @@ export default function NavBar() {
         </NavLink>
         <NavLink to="/history" className={({ isActive }) => isActive ? styles.active : ''}>
           <Clock className={styles.icon} />
+        </NavLink>
+        <NavLink to="/savings" className={({ isActive }) => isActive ? styles.active : ''}>
+          <HandCoins className={styles.icon} />
         </NavLink>
       </div>
     </div>
