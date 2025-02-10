@@ -2,10 +2,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 import { Transaction, TransactionFormValues } from "./types";
-import { loadTransactions, saveTransactions } from "./storage";
+import { loadSavings, loadSavingsPercentage, loadTransactions, saveSavings, saveSavingsPercentage, saveTransactions } from "./storage";
 
-const initialState: { items: Transaction[] } = {
+const initialState: { items: Transaction[], savings: number, savingsPersentage: number } = {
   items: loadTransactions(),
+  savings: loadSavings(),
+  savingsPersentage: loadSavingsPercentage(),
 };
 
 const transactionsSlice = createSlice({
@@ -19,6 +21,13 @@ const transactionsSlice = createSlice({
         }
         state.items.push(action.payload);
         saveTransactions(state.items);
+
+        if (action.payload.type === "income") {
+          const savingsAmount = (state.savingsPersentage / 100) * action.payload.amount;
+          action.payload.amount -= savingsAmount
+          state.savings += savingsAmount;
+          saveSavings(state.savings);
+        }
       },
       prepare: (values: TransactionFormValues) => ({
         payload: {
@@ -41,9 +50,13 @@ const transactionsSlice = createSlice({
         saveTransactions(state.items);
       }
     },
+    setSavingsPercentage: (state, action: PayloadAction<number>) => {
+      state.savingsPersentage = action.payload;
+      saveSavingsPercentage(action.payload);
+    },
   },
 });
 
-export const { addTransaction, deleteTransaction, editTransaction } =
+export const { addTransaction, deleteTransaction, editTransaction, setSavingsPercentage } =
   transactionsSlice.actions;
 export default transactionsSlice.reducer;
