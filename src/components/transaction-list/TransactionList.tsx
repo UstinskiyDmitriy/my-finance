@@ -8,7 +8,7 @@ export const TransactionList = () => {
 
   return (
     <div>
-      <h2>История операций</h2>
+      <h1>История операций</h1>
 
       {transactions.length === 0 ? (
         <h2 className={styles.no_have}>Нет операций</h2>
