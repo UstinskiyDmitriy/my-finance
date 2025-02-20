@@ -3,7 +3,7 @@ import { Box, Typography, TextField } from "@mui/material";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
-import { loadSavingsGoal, saveSavingsGoal } from "../../features/LocalStorage";
+import { loadSavingsGoal, saveSavingsGoal } from "../../features/localStorage";
 
 const SavingsGoalCard = () => {
   const savings = useSelector((state: RootState) => state.transactions.savings);

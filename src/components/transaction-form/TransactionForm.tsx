@@ -4,10 +4,10 @@ import { useTransactions } from "../../hooks/useTransactions";
 import styles from "./TransactionForm.module.css";
 import { EXPENSE_CATEGORIES, INCOME_CATEGORIES } from "../../const/categories";
 import { useAppSelector } from "../../app/store"; 
-import { saveSavings } from "../../features/LocalStorage";
 import { useDispatch } from "react-redux";
 import { setSavings } from "../../features/slices/transactionSlice";
 import { Transaction } from "../../types/types";
+import { saveSavings } from "../../features/localStorage";
 export const TransactionForm = () => {
   const { register, handleSubmit, reset, watch, setValue } =
     useForm<Transaction>();

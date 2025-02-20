@@ -5,7 +5,7 @@ import {
   loadSavings,
   loadSavingsPercentage,
   saveSavingsPercentage,
-} from "../LocalStorage";
+} from "../localStorage";
 import { supabase } from "../../shared/api/supabase";
 
 interface TransactionsState {
