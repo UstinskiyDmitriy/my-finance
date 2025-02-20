@@ -1,5 +1,5 @@
 import styles from "./TransactionModal.module.css";
-import { useTransactions } from "../../features/transactions/hooks";
+import { useTransactions } from "../../hooks/useTransactions";
 
 interface TransactionModalProps {
   type: "income" | "expense";

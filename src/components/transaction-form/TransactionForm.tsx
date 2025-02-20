@@ -1,26 +1,34 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useEffect } from "react";
-import { TransactionFormValues } from "../../features/transactions/types";
-import { useTransactions } from "../../features/transactions/hooks";
+import { useTransactions } from "../../hooks/useTransactions";
 import styles from "./TransactionForm.module.css";
-import {
-  expenseCategories,
-  incomeCategories,
-} from "../../features/transactions/const/categories";
-
+import { EXPENSE_CATEGORIES, INCOME_CATEGORIES } from "../../const/categories";
+import { useAppSelector } from "../../app/store"; 
+import { saveSavings } from "../../features/LocalStorage";
+import { useDispatch } from "react-redux";
+import { setSavings } from "../../features/slices/transactionSlice";
+import { Transaction } from "../../types/types";
 export const TransactionForm = () => {
   const { register, handleSubmit, reset, watch, setValue } =
-    useForm<TransactionFormValues>();
-  const { addTransaction } = useTransactions();
-
+    useForm<Transaction>();
+  const dispatch = useDispatch()
+  const { addTransaction, incomeTotal } = useTransactions();
+  const percent = useAppSelector((state) => state.transactions.savingsPersentage)
   const type = watch("type", "expense");
-  const categories = type === "expense" ? expenseCategories : incomeCategories;
+  const categories = type === "expense" ? EXPENSE_CATEGORIES : INCOME_CATEGORIES;
 
   useEffect(() => {
+    const saveTotalSavings = () => {
+      const savings = incomeTotal * (percent / 100);
+      saveSavings(savings);
+      dispatch(setSavings(savings));
+    };
+  
     setValue("category", categories[0]);
-  }, [type, categories, setValue]);
+    saveTotalSavings();
+  }, [type, categories, setValue, incomeTotal, percent, dispatch]);
 
-  const onSubmit: SubmitHandler<TransactionFormValues> = (data) => {
+  const onSubmit: SubmitHandler<Transaction> = (data) => {
     addTransaction(data);
     reset();
   };

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Slider, TextField, Box, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../app/store";
-import { setSavingsPercentage } from "../../features/transactions/slice";
+import { setSavingsPercentage } from "../../features/slices/transactionSlice";
 
 const SavingsPercentagePicker = () => {
   const dispatch = useDispatch();
@@ -28,12 +28,14 @@ const SavingsPercentagePicker = () => {
         gap: 2,
         p: 2,
         borderRadius: 5,
-        boxShadow: '3px 3px 10px #111',
-        backgroundColor: '#222'
+        boxShadow: "3px 3px 10px #111",
+        backgroundColor: "#222",
       }}
     >
       <Typography variant="h6">Выберите процент накоплений:</Typography>
-      <Typography variant="caption">Процент будет отниматься от входящих доходов</Typography>
+      <Typography variant="caption">
+        Процент будет отниматься от входящих доходов
+      </Typography>
 
       <Slider
         value={value}
@@ -43,28 +45,27 @@ const SavingsPercentagePicker = () => {
         step={1}
         aria-labelledby="input-slider"
       />
-    <Box
-    sx={{
-        display: "flex",
-        alignItems: "center",
-        gap: "10px",
-        fontSize: '1.4rem'
-    }}
-    >
-    <TextField
-        type="number"
-        value={value}
-        onChange={(e) => handleChange(Number(e.target.value))}
-        inputProps={{ min: 0, max: 100 }}
+      <Box
         sx={{
-            width: 'fit-content',
-            textAlign: 'center',
-            padding: "0"
+          display: "flex",
+          alignItems: "center",
+          gap: "10px",
+          fontSize: "1.4rem",
         }}
-      />
-      <p>%</p>
-    </Box>
-    
+      >
+        <TextField
+          type="number"
+          value={value}
+          onChange={(e) => handleChange(Number(e.target.value))}
+          inputProps={{ min: 0, max: 100 }}
+          sx={{
+            width: "fit-content",
+            textAlign: "center",
+            padding: "0",
+          }}
+        />
+        <p>%</p>
+      </Box>
     </Box>
   );
 };

@@ -1,6 +1,6 @@
-import { useTransactions } from "../../features/transactions/hooks";
+import { useTransactions } from "../../hooks/useTransactions";
 import { formatDate } from "../../shared/lib/helpers";
-import { Transaction } from "../../features/transactions/types";
+import { Transaction } from "../../types/types";
 import styles from "./TransactionList.module.css";
 
 export const TransactionList = () => {
