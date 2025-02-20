@@ -7,6 +7,7 @@ import HistoryPage from './pages/history/HistoryPage';
 import Savings from './pages/savings/Savings';
 
 export default function App() {
+  
   return (
     <Router>
       <div className={styles.container}>
