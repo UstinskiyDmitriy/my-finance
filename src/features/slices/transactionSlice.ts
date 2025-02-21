@@ -6,7 +6,7 @@ import {
   loadSavingsPercentage,
   saveSavingsPercentage,
 } from "../localStorage";
-import { supabase } from "../../shared/api/supabase";
+import { supabase } from "../../app/supabase";
 
 interface TransactionsState {
   items: Transaction[];
@@ -28,7 +28,16 @@ export const loadTransactions = createAsyncThunk(
   "transactions/load",
   async (_, { rejectWithValue }) => {
     try {
-      const { data, error } = await supabase.from("transactions").select("*");
+      const { data: userData, error: userError } = await supabase.auth.getUser();
+      if (userError || !userData.user) {
+        throw new Error("Пользователь не авторизован");
+      }
+
+      const { data, error } = await supabase
+        .from("transactions")
+        .select("*")
+        .eq("user_id", userData.user.id); 
+
       if (error) throw new Error(error.message);
       return data;
     } catch (error) {
@@ -36,6 +45,7 @@ export const loadTransactions = createAsyncThunk(
     }
   }
 );
+
 
 export const createTransaction = createAsyncThunk(
   "transactions/create",
@@ -55,14 +65,22 @@ export const createTransaction = createAsyncThunk(
   }
 );
 
+
 export const removeTransaction = createAsyncThunk(
   "transactions/delete",
   async (id: string, { rejectWithValue }) => {
     try {
+      const { data: userData, error: userError } = await supabase.auth.getUser();
+      if (userError || !userData.user) {
+        throw new Error("Пользователь не авторизован");
+      }
+
       const { error } = await supabase
         .from("transactions")
         .delete()
-        .eq("id", id);
+        .eq("id", id)
+        .eq("user_id", userData.user.id); 
+
       if (error) throw new Error(error.message);
       return id;
     } catch (error) {
@@ -71,14 +89,21 @@ export const removeTransaction = createAsyncThunk(
   }
 );
 
+
 export const editTransaction = createAsyncThunk(
   "transactions/edit",
   async (transaction: Transaction, { rejectWithValue }) => {
     try {
+      const { data: userData, error: userError } = await supabase.auth.getUser();
+      if (userError || !userData.user) {
+        throw new Error("Пользователь не авторизован");
+      }
+
       const { error } = await supabase
         .from("transactions")
         .update(transaction)
-        .eq("id", transaction.id);
+        .eq("id", transaction.id)
+        .eq("user_id", userData.user.id); 
 
       if (error) throw new Error(error.message);
       return transaction;
@@ -87,6 +112,7 @@ export const editTransaction = createAsyncThunk(
     }
   }
 );
+
 
 const transactionsSlice = createSlice({
   name: "transactions",
