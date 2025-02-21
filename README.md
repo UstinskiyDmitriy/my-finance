@@ -17,6 +17,7 @@
 - React Router
 - React Hook Form
 - Redux Toolkit
+- Supabse
 - Local Storage
 - Кастомный хук useTransaction()
 - Chart.js
@@ -28,10 +29,12 @@
 
 | Mobile | Desktop |
 | :-: | :-: |
+|![mobile1](./public/mobile_login.png)| ![desktop1](./public/desktop_login.png) |
 |![mobile1](./public/screen1_mobile.png)| ![desktop1](./public/desktop1.png) |
 |![mobile2](./public/screen2_mobile.png)| ![desktop2](./public/desktop2.png) |
 |![mobile3](./public/screen3_mobile.png)| ![desktop3](./public/desktop3.png) |
 |![mobile4](./public/screen4_mobile.png)| ![desktop4](./public/desktop4.png) |
+|![mobile1](./public/savings_mobile.png)| ![desktop1](./public/savings_desktop.png) |
 
 ### Что было сделано 
 
@@ -39,11 +42,12 @@
 - Настройка состояния приложения в Redux Toolkit
 - Настройка роутинга
 - Создание кастомного хука для взаимодействия с состояниями 
-
+- Реализовал регистрацию пользователей
+- Реализовал хранение данных транзакций в БД Supabase
+- Добавлена страница с накоплениями 
 ### Что планируется добавить/изменить
 
 - Возможность добавление собственных категорий 
-- Добавить страницу с целями(накоплениями)
 - Добавить уведомления в телеграм и возможность выключать их 
 - создать бота телеграм для полуения уведомлений 
 
