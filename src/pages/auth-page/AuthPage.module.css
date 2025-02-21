@@ -1,0 +1,39 @@
+.main {
+    width:100vw;
+    height: 90vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.main form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25vw;
+    gap: 15px;
+}
+
+.main form button {
+    background: var(--submit-color);
+    color:  var(--primary-text-color);
+    border: none;
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.sign_in {
+    background: var(--accent-bg-color);
+    color:  var(--primary-text-color);
+    border: none;
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 8px;
+    margin-block-start: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
